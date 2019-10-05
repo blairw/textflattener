@@ -19,8 +19,16 @@ public class BWTextFlattener extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        // set up loader and controller
+        FXMLLoader myLoader = new FXMLLoader();
+        FXMLDocumentController myController = new FXMLDocumentController();
         
+        // configure loader
+        myLoader.setLocation(getClass().getResource("FXMLDocument.fxml"));
+        myLoader.setController(myController);
+
+        // actually load
+        Parent root = myLoader.load();
         Scene scene = new Scene(root);
         
         stage.setScene(scene);

@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bwtextflattener.FXMLDocumentController">
-    <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
-    </children>
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="bwtextflattener.FXMLDocumentController">
+   <children>
+      <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TextArea fx:id="txtInput" prefHeight="200.0" prefWidth="200.0" promptText="Your text goes here" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="rbnSpace" layoutX="22.0" layoutY="371.0" mnemonicParsing="false" selected="true" text="Line breaks become space" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="10.0">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="myToggleGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rbnDisappear" layoutX="36.0" layoutY="399.0" mnemonicParsing="false" text="Line breaks disappear" toggleGroup="$myToggleGroup" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" />
+                  <TextArea fx:id="txtOutput" editable="false" layoutX="19.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" promptText="This is not editable! It will get replaced with the output!" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                  <FlowPane alignment="BASELINE_RIGHT" columnHalignment="CENTER" hgap="10.0" layoutX="44.0" layoutY="394.0" prefHeight="27.0" prefWidth="295.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#userDidClickFlatten" text="Flatten">
+                           <FlowPane.margin>
+                              <Insets />
+                           </FlowPane.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" text="Copy to Clipboard" />
+                     </children>
+                  </FlowPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
 </AnchorPane>
